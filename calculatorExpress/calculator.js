@@ -19,7 +19,7 @@ app.post("/BMI",
     let weight = Number(req.body.weight)
     let height = Number(req.body.height)
     let bmi = weight / Math.pow(height, 2)
-    console.log(weight, height, bmi, req.body);
+    res.send("your bmi is " + bmi)
 })
 
 app.post('/', 

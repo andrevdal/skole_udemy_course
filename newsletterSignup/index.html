@@ -42,7 +42,6 @@
       sizes="16x16"
       type="image/png"
     />
-    <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json" />
     <link
       rel="mask-icon"
       href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg"
@@ -72,44 +71,41 @@
   </head>
   <body class="text-center">
     <main class="form-signin">
-      <form>
+      <form action="/" method="post">
         <img
           class="mb-4"
-          src="/docs/5.1/assets/brand/bootstrap-logo.svg"
+          src="https://pbs.twimg.com/media/Eh-peq3XcAASpvS?format=jpg&name=large"
           alt=""
           width="72"
           height="57"
         />
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-        <div class="form-floating">
+        <h1 class="h3 mb-3 fw-normal">Sign up for daily mail with exclusive deals and giveaways!</h1>
+          <input
+            type="text"
+            class="form-control top"
+            placeholder="Name"
+            name="name"
+            required
+          />
+          <input
+            type="text"
+            class="form-control mid"
+            placeholder="Sirname"
+            name="sirname"
+            required
+          />
           <input
             type="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            class="form-control bot"
+            placeholder="Email"
+            name="email"
+            required
           />
-          <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-          />
-          <label for="floatingPassword">Password</label>
-        </div>
-
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me" /> Remember me
-          </label>
-        </div>
+          <br>
         <button class="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+          Sign up
         </button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        <p class="mt-5 mb-3 text-muted">&copy; Andreas inc</p>
       </form>
     </main>
   </body>

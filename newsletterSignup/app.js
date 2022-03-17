@@ -2,6 +2,8 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const request = require("request")
 const https = require("https")
+const { dirname } = require("path")
+const { stat } = require("fs")
 
 const app = express()
 
@@ -37,13 +39,23 @@ app.post("/", (req, res)=>{
     const url = "https://us14.api.mailchimp.com/3.0/lists/b38807234e"
     const request = https.request(url, options, (response)=>{
         response.on("data", (data)=>{
-            console.log(JSON.parse(data));
-            res.json(JSON.parse(data))
+            console.log(JSON.parse(data),response.statusCode);
+            //res.json(JSON.parse(data))
+            if(response.statusCode > 399){
+                res.sendFile(__dirname + "/falure.html")
+            } else if (response.statusCode >= 200 ){
+                res.sendFile(__dirname + "/success.html")
+            }
         })
     })
     request.write(jsondData);
     request.end()
 })
+
+app.post("/failure", (req, res)=>{
+    res.redirect("/")
+})
+
 app.listen(600, ()=>{
     console.log("we gud in da hood on port 600");
 })

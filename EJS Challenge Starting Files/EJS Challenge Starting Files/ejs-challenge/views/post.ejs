@@ -1,0 +1,7 @@
+<%- include("partials/header") -%>
+<% posts.forEach((e)=>{ %>
+    <% if(e.title === userSearch) {%>
+        <h1><%= e.title %></h1>
+        <p><%= e.content %></p>
+<% }}) %>
+<%- include("partials/footer") -%> 

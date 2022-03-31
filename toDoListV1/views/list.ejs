@@ -3,20 +3,27 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/styles.css">
         <title>To do list</title>
     </head>
     <body>
-        <h1><%= dayOfWeek %></h1>
-        <ul>
-            <% newTasks.forEach((e)=>{ %>
-                <li>
-                    <%= e %>
-                </li>
-            <% }) %>
-        </ul>
-        <form action="/" method="post">
-            <input type="text" placeholder="Task" name="taskInput">
-            <button type="submit" name="taskAddButton">Add</button>
-        </form>
+        <div class="box" id="heading">
+            <h1><%= listTitle %></h1>
+
+        </div>
+        <div class="box">
+                <% newTasks.forEach((e)=>{ %>
+                <div class="item">
+                <input type="checkbox">
+                    <p>
+                        <%= e %>
+                    </p>
+            </div>
+                <% }) %>
+            <form action="/" method="post" class="item">
+                <input type="text" placeholder="NewTask" name="taskInput" autocomplete="off">
+                <button type="submit" name="taskAddButton" value="<%= listTitle %>">+</button>
+            </form>
+        </div>
     </body>
 </html>

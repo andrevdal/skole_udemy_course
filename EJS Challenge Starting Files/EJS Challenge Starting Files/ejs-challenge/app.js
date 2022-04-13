@@ -32,13 +32,24 @@ app.get("/posts/:title", (req, res) => {
     let userSearch = _.lowerCase(req.params.title);
     let postTitle = _.lowerCase(e.title);
     if (userSearch === postTitle) {
-      res.render("post", { posts: posts, userSearch: userSearch });
+      res.render("post", { postTitle: e.title, postContent: e.content });
     } else {
       console.log("!match");
     }
   });
 });
 app.post("/compose", (req, res) => {
+  let newPostTitle = req.body.composeTitleInput.toLowerCase();
+  let newPostContent = req.body.composeContentInput.toLowerCase();
+  const isDuplicate = posts.some(
+    (blog) =>
+      blog.title.toLowerCase() === newPostTitle ||
+      blog.content.toLowerCase() === newPostContent
+  );
+  if (isDuplicate) {
+    console.log("error, same title");
+    return res.send("Duplicate blog");
+  }
   const post = {
     title: req.body.composeTitleInput,
     content: req.body.composeContentInput,
